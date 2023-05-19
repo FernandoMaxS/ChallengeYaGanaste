@@ -11,9 +11,12 @@
 		B4514F6D2A170F33003C6EA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4514F6C2A170F33003C6EA9 /* SceneDelegate.swift */; };
 		B4514F6F2A170F33003C6EA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4514F6E2A170F33003C6EA9 /* ViewController.swift */; };
 		B4514F722A170F33003C6EA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4514F702A170F33003C6EA9 /* Main.storyboard */; };
-		B4514F752A170F33003C6EA9 /* ChallengeYaGanaste.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4514F732A170F33003C6EA9 /* ChallengeYaGanaste.xcdatamodeld */; };
 		B4514F772A170F35003C6EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4514F762A170F35003C6EA9 /* Assets.xcassets */; };
 		B4514F7A2A170F35003C6EA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4514F782A170F35003C6EA9 /* LaunchScreen.storyboard */; };
+		B4514F852A1710B4003C6EA9 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4514F842A1710B4003C6EA9 /* BankModel.swift */; };
+		B4514F872A171128003C6EA9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4514F862A171128003C6EA9 /* ApiClient.swift */; };
+		B4514F8A2A171781003C6EA9 /* BankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4514F882A171781003C6EA9 /* BankTableViewCell.swift */; };
+		B4514F8E2A172B26003C6EA9 /* BankDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4514F8C2A172B26003C6EA9 /* BankDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +25,13 @@
 		B4514F6C2A170F33003C6EA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B4514F6E2A170F33003C6EA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B4514F712A170F33003C6EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B4514F742A170F33003C6EA9 /* ChallengeYaGanaste.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChallengeYaGanaste.xcdatamodel; sourceTree = "<group>"; };
 		B4514F762A170F35003C6EA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4514F792A170F35003C6EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4514F7B2A170F35003C6EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4514F842A1710B4003C6EA9 /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
+		B4514F862A171128003C6EA9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		B4514F882A171781003C6EA9 /* BankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTableViewCell.swift; sourceTree = "<group>"; };
+		B4514F8D2A172B26003C6EA9 /* BankModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BankModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +64,51 @@
 		B4514F692A170F33003C6EA9 /* ChallengeYaGanaste */ = {
 			isa = PBXGroup;
 			children = (
+				B4514F812A170FA7003C6EA9 /* Model */,
+				B4514F822A170FAD003C6EA9 /* View */,
+				B4514F832A170FB3003C6EA9 /* Controller */,
 				B4514F6A2A170F33003C6EA9 /* AppDelegate.swift */,
 				B4514F6C2A170F33003C6EA9 /* SceneDelegate.swift */,
-				B4514F6E2A170F33003C6EA9 /* ViewController.swift */,
-				B4514F702A170F33003C6EA9 /* Main.storyboard */,
 				B4514F762A170F35003C6EA9 /* Assets.xcassets */,
 				B4514F782A170F35003C6EA9 /* LaunchScreen.storyboard */,
 				B4514F7B2A170F35003C6EA9 /* Info.plist */,
-				B4514F732A170F33003C6EA9 /* ChallengeYaGanaste.xcdatamodeld */,
 			);
 			path = ChallengeYaGanaste;
+			sourceTree = "<group>";
+		};
+		B4514F812A170FA7003C6EA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B4514F8F2A172B3B003C6EA9 /* CoreData */,
+				B4514F842A1710B4003C6EA9 /* BankModel.swift */,
+				B4514F862A171128003C6EA9 /* ApiClient.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B4514F822A170FAD003C6EA9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4514F702A170F33003C6EA9 /* Main.storyboard */,
+				B4514F882A171781003C6EA9 /* BankTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B4514F832A170FB3003C6EA9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B4514F6E2A170F33003C6EA9 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B4514F8F2A172B3B003C6EA9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B4514F8C2A172B26003C6EA9 /* BankDataModel.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +183,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4514F6F2A170F33003C6EA9 /* ViewController.swift in Sources */,
+				B4514F852A1710B4003C6EA9 /* BankModel.swift in Sources */,
 				B4514F6B2A170F33003C6EA9 /* AppDelegate.swift in Sources */,
+				B4514F8E2A172B26003C6EA9 /* BankDataModel.xcdatamodeld in Sources */,
 				B4514F6D2A170F33003C6EA9 /* SceneDelegate.swift in Sources */,
-				B4514F752A170F33003C6EA9 /* ChallengeYaGanaste.xcdatamodeld in Sources */,
+				B4514F8A2A171781003C6EA9 /* BankTableViewCell.swift in Sources */,
+				B4514F872A171128003C6EA9 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,13 +408,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B4514F732A170F33003C6EA9 /* ChallengeYaGanaste.xcdatamodeld */ = {
+		B4514F8C2A172B26003C6EA9 /* BankDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B4514F742A170F33003C6EA9 /* ChallengeYaGanaste.xcdatamodel */,
+				B4514F8D2A172B26003C6EA9 /* BankModel.xcdatamodel */,
 			);
-			currentVersion = B4514F742A170F33003C6EA9 /* ChallengeYaGanaste.xcdatamodel */;
-			path = ChallengeYaGanaste.xcdatamodeld;
+			currentVersion = B4514F8D2A172B26003C6EA9 /* BankModel.xcdatamodel */;
+			path = BankDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
