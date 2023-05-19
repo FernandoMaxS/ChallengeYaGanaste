@@ -6,12 +6,13 @@
 //
 
 import UIKit
-
-class BankTableViewCell: UITableViewCell,UITextViewDelegate {
+import Kingfisher
+class BankTableViewCell: UITableViewCell {
     
     let labelBankName: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
+        label.font = UIFont(name: "HelveticaNeue", size: 28)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -30,12 +31,10 @@ class BankTableViewCell: UITableViewCell,UITextViewDelegate {
         return label
     }()
     
-    let textViewUrl: UITextView = {
-        let textView = UITextView()
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.isSelectable = true
-        textView.dataDetectorTypes = .link
-        return textView
+    let urlImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
 
     override func awakeFromNib() {
@@ -62,26 +61,26 @@ class BankTableViewCell: UITableViewCell,UITextViewDelegate {
         addSubview(labelBankName)
         addSubview(labelDescription)
         addSubview(labelAge)
-        addSubview(textViewUrl)
+        addSubview(urlImageView)
         
         NSLayoutConstraint.activate([
-            labelBankName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            labelBankName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            labelBankName.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            //labelBankName.heightAnchor.constraint(equalToConstant: 80),
-            //labelBankName.widthAnchor.constraint(equalToConstant: 80),
+            urlImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            urlImageView.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            urlImageView.heightAnchor.constraint(equalToConstant: 80),
+            urlImageView.widthAnchor.constraint(equalToConstant: 80),
             
-            labelDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            labelBankName.leadingAnchor.constraint(equalTo: urlImageView.trailingAnchor, constant: 20),
+            labelBankName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            labelBankName.topAnchor.constraint(equalTo: urlImageView.topAnchor),
+            
+            
+            labelDescription.leadingAnchor.constraint(equalTo: urlImageView.trailingAnchor, constant: 20),
             labelDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
             labelDescription.topAnchor.constraint(equalTo: labelBankName.bottomAnchor, constant: 12),
             
-            labelAge.trailingAnchor.constraint(equalTo: labelBankName.trailingAnchor, constant: -12),
-            labelAge.topAnchor.constraint(equalTo: labelBankName.topAnchor),
-            
-            textViewUrl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            textViewUrl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-            textViewUrl.topAnchor.constraint(equalTo: labelDescription.bottomAnchor, constant: 12),
-            textViewUrl.heightAnchor.constraint(equalToConstant: 24)
+            labelAge.trailingAnchor.constraint(equalTo: labelBankName.trailingAnchor, constant: -6),
+            labelAge.topAnchor.constraint(equalTo: labelBankName.topAnchor, constant: 8),
+    
             
             
         ])
@@ -91,21 +90,10 @@ class BankTableViewCell: UITableViewCell,UITextViewDelegate {
         self.labelBankName.text = model.bankName
         self.labelDescription.text = model.description
         self.labelAge.text = "\(model.age)"
-        self.textViewUrl.delegate = self
-        let attributedString = NSMutableAttributedString(string: "Links")
-        attributedString.addAttribute(.link, value: model.url, range: NSRange(location: 0, length: 5))
-     
-
-        
-        self.textViewUrl.attributedText  = attributedString
+        self.urlImageView.kf.setImage(with: URL(string: model.url))
         
         
     }
     
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-           UIApplication.shared.open(URL)
-           return false
-       }
-    
-    
 }
+

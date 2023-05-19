@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -20,11 +21,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        tableView.dataSource = self
-        tableView.register(BankTableViewCell.self, forCellReuseIdentifier: "BankTableViewCell")
+        view.backgroundColor = .white
+        tableView?.dataSource = self
     
-        tableView.rowHeight = 120
-        tableView.allowsSelection = false
+        tableView?.register(BankTableViewCell.self, forCellReuseIdentifier: "BankTableViewCell")
+        tableView?.rowHeight = 136
+        tableView?.allowsSelection = false
 
         loadBanks()
     }
@@ -55,7 +57,7 @@ class ViewController: UIViewController {
                     //AppDelegate
                     for data in dataList {
                         let bank = BankEntity(context: self.context)
-                        bank.name = "Desde CoreData"//"data.bankName"
+                        bank.name = data.bankName //"Desde CoreData"//"data.bankName"
                         bank.age = Int16(data.age)
                         bank.desc = data.description
                         bank.link = data.url
@@ -69,7 +71,7 @@ class ViewController: UIViewController {
                     let bank = BankObject(bankName: data.name ?? "", description: data.desc ?? "", age: Int(data.age), url: data.link ?? "")
                     dataList.append(bank)
                 }
-                self.tableView.reloadData()
+                self.tableView?.reloadData()
                 
             }
         }catch{
@@ -90,7 +92,10 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BankTableViewCell", for: indexPath) as! BankTableViewCell
         let bank = dataList[indexPath.row]
         cell.configure(bank)
+        
         return cell
     }
+
 }
+
 
